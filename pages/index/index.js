@@ -9,7 +9,7 @@ Page({
     indicatorDots: true,
     autoplay: true,
     interval: 3000,
-    loading: false,
+    loading: true,
     plain: false
   },
   //事件处理函数
@@ -33,7 +33,7 @@ Page({
   //博客详细处理函数
   bindBlogDetail(e) {
     wx.navigateTo({
-      url: '../detail/detail?id=' + e.target.dataset.id
+      url: '../blogdetail/blogdetail?id=' + e.target.dataset.id
     })
   },
   loadMore(e) {

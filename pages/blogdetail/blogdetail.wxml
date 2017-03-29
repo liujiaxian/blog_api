@@ -1,31 +1,31 @@
 <!--detail.wxml-->
 <view class="container">
-    <view class="art-header">
-        <image src="http://pqpqpq.cn{{banner.url}}" class="art-img"/>
-        <view class="art-title">{{banner.title}}</view>
-    </view>
+    
 
     <scroll-view scroll-y="true" class="container">
     <block>
     <view class="feed-item">
+     <view class="blog-title"><text>{{blog.title}}</text></view>
       <view class="feed-source">
+     
+
           <view class="avatar">
-            <image src="http://pqpqpq.cn{{banner.userPictureUrl}}" data-id="{{banner.userID}}" bindtap="bindMemberInfo"></image>
+            <image src="http://pqpqpq.cn{{blog.userPictureUrl}}" data-id="{{blog.userID}}" bindtap="bindMemberInfo"></image>
           </view>
-          <text data-id="{{banner.userID}}" bindtap="bindMemberInfo">{{banner.nickName}}</text>
-        <text class="item-more" bindtap="bindTypeInfo">轮播列表</text>
+          <text data-id="{{blog.userID}}" bindtap="bindMemberInfo">{{blog.nickName}}</text>
+        <text class="item-more" bindtap="bindTypeInfo">{{blog.typeName}}</text>
       </view>
       <view class="feed-content">
         <view class="answer-body">
           <view>
-            <text class="answer-txt">{{banner.describe}}</text>
+            <text class="answer-txt">{{blog.describe}}</text>
           </view>
           <view class="answer-actions">
             <view class="like">
-              共 {{banner.hot}} 人已浏览
+              共 {{blog.hot}} 人已浏览
             </view>
             <view class="comments">
-              <text class="item-more">{{banner.addTime}}</text>
+              <text class="item-more">{{blog.addTime}}</text>
             </view>
             <view class="clear-both"></view>
           </view>
@@ -36,6 +36,6 @@
 </scroll-view>
 
     <view class="art-content">
-      {{banner.content}}
+      {{blog.content}}
     </view> 
 </view>

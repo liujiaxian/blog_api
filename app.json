@@ -6,6 +6,7 @@
     "pages/plan/plan",
     "pages/member/member",
     "pages/detail/detail",
+    "pages/blogdetail/blogdetail",
     "pages/list/list"
   ],
   "window":{

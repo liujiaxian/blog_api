@@ -120,12 +120,6 @@
   padding: 10px;
 }
 
-.container{
-  padding: 0;
-  font-size: 18px;
-  background: #F0F4F3;
-  color: #000;
-}
 /*feed-item part is in app.wxss for multiplexing*/
 
 .navtitle{
@@ -142,4 +136,12 @@
 
 .clear-both{
   clear: both;
+}
+
+.container .feed-item .feed-source .avatar{
+  float:left;
+}
+.index-title{
+  font-size:16px;
+  margin-left:15px;
 }

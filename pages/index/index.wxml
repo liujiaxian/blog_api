@@ -12,15 +12,16 @@
 
   <scroll-view scroll-y="true" class="container">
  <view class="navtitle">
-   <navigator url="../detail/detail?id={{item.id}}"><text class="answer-txt">博客列表</text></navigator>
+   <navigator url="../detail/detail?id={{item.id}}"><text class="answer-txt index-title">博客列表</text></navigator>
   </view>
   <block wx:for="{{blog}}" wx:key="blogInfoListId">
     <view class="feed-item">
       <view class="feed-source">
           <view class="avatar">
             <image src="http://pqpqpq.cn{{item.userPictureUrl}}" data-id="{{item.userID}}" bindtap="bindMemberInfo"></image>
+            <text data-id="{{item.userID}}" bindtap="bindMemberInfo">{{item.nickName}}</text>
           </view>
-          <text data-id="{{item.userID}}" bindtap="bindMemberInfo">{{item.nickName}}</text>
+          
         <text class="item-more" data-id="{{item.typeID}}" bindtap="bindTypeInfo">{{item.typeName}}</text>
       </view>
       <view class="feed-content">
