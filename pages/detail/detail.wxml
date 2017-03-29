@@ -1,0 +1,11 @@
+<!--detail.wxml-->
+<view class="container">
+    <view class="art-header">
+        <image src="http://pqpqpq.cn{{banner.url}}" class="art-img"/>
+        <view class="art-title">{{banner.title}}</view>
+        <view class="art-source">{{banner.description}}</view>
+    </view>
+    <view class="art-content">
+      {{banner.content}}
+    </view> 
+</view>

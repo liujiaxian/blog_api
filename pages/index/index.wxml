@@ -1,0 +1,45 @@
+
+<!--index.wxml-->
+<view class="container">
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" class="banners" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{banner}}" wx:key="bannerInfoListId">
+      <swiper-item class="banner">
+        <image src="http://pqpqpq.cn{{item.url}}" data-id="{{item.bannerID}}" bindtap="bindViewTap" class="banner-image" width="100%" height="100%" />
+        <text class="banner-title" data-id="{{item.bannerID}}" bindtap="bindViewTap">{{item.title}}</text>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <scroll-view scroll-y="true" class="container">
+ <view class="navtitle">
+   <navigator url="../detail/detail?id={{item.id}}"><text class="answer-txt">博客列表</text></navigator>
+  </view>
+  <block wx:for="{{blog}}" wx:key="blogInfoListId">
+    <view class="feed-item">
+      <view class="feed-source">
+          <view class="avatar">
+            <image src="http://pqpqpq.cn{{item.userPictureUrl}}" data-id="{{item.userID}}" bindtap="bindMemberInfo"></image>
+          </view>
+          <text data-id="{{item.userID}}" bindtap="bindMemberInfo">{{item.nickName}}</text>
+        <text class="item-more" data-id="{{item.typeID}}" bindtap="bindTypeInfo">{{item.typeName}}</text>
+      </view>
+      <view class="feed-content">
+        <view class="answer-body">
+          <view>
+            <text class="answer-txt" bindtap="bindBlogDetail" data-id="{{item.blogID}}">{{item.title}}</text>
+          </view>
+          <view class="answer-actions" bindtap="bindItemTap">
+            <view class="like">
+              共 {{item.hot}} 人已浏览
+            </view>
+            <view class="comments">
+              <text class="item-more">{{item.addTime}}</text>
+            </view>
+            <view class="clear-both"></view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+  </scroll-view>
+</view>

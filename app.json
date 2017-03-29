@@ -1,0 +1,53 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/blog/blog",
+    "pages/book/book",
+    "pages/plan/plan",
+    "pages/member/member",
+    "pages/detail/detail",
+    "pages/list/list"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#00a2ea",
+    "navigationBarTitleText": "诺缘网",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#353535",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "iconPath": "images/icon_API.png",
+      "selectedIconPath": "images/icon_API_HL.png",
+      "text": "主页"
+    }, {
+      "pagePath": "pages/blog/blog",
+      "iconPath": "images/icon_component.png",
+      "selectedIconPath": "images/icon_component_HL.png",
+      "text": "博客"
+    }, {
+      "pagePath": "pages/book/book",
+      "iconPath": "images/icon_component.png",
+      "selectedIconPath": "images/icon_component_HL.png",
+      "text": "图书"
+    }, {
+      "pagePath": "pages/plan/plan",
+      "iconPath": "images/icon_component.png",
+      "selectedIconPath": "images/icon_component_HL.png",
+      "text": "计划"
+    }, {
+      "pagePath": "pages/member/member",
+      "iconPath": "images/icon_component.png",
+      "selectedIconPath": "images/icon_component_HL.png",
+      "text": "个人中心"
+    }]
+  },
+  "networkTimeout": {
+    "request": 120000,
+    "downloadFile": 120000
+  }
+}
