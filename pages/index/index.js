@@ -60,6 +60,7 @@ Page({
     return now
   },
   onLoad() {
+    wx.showLoading();
     let that = this
     wx.request({
       url: 'https://api.pqpqpq.cn/api/values/getbanner',
@@ -106,10 +107,14 @@ Page({
     //   })
     // })
 
+  },
+  onReady:function(){
+    // 页面渲染完成
+     wx.hideLoading();
   },onShareAppMessage: function () {
     return {
       title: '诺缘网',
-      path: '/page/index/index'
+      path: '/pages/index/index'
     }
   }
 })
