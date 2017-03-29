@@ -1,10 +1,10 @@
 Page({
   data: {
-    loading: true,
+    loading: true
   },
   onReady() {
     wx.setNavigationBarTitle({
-      title: '详情页面'
+      title: "轮播详情"
     })
   },
   onLoad(options) {
@@ -24,5 +24,10 @@ Page({
         })
       }
     })
+  },onShareAppMessage: function () {
+    return {
+      title: "轮播详情",
+      path: '/page/index/index'
+    }
   }
 })

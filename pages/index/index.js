@@ -106,5 +106,10 @@ Page({
     //   })
     // })
 
+  },onShareAppMessage: function () {
+    return {
+      title: '诺缘网',
+      path: '/page/index/index'
+    }
   }
 })

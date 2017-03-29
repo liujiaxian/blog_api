@@ -6,6 +6,9 @@ Page({
   },
   onReady:function(){
     // 页面渲染完成
+     wx.setNavigationBarTitle({
+      title: "博客详情"
+    })
   },
   onLoad(options) {
     var that = this
@@ -33,5 +36,10 @@ Page({
   },
   onUnload:function(){
     // 页面关闭
+  },onShareAppMessage: function () {
+    return {
+      title: "博客详情",
+      path: '/page/index/index'
+    }
   }
 })
