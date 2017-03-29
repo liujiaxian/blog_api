@@ -39,7 +39,7 @@ Page({
   },onShareAppMessage: function () {
     return {
       title: "博客详情",
-      path: '/page/index/index'
+      path: '/pages/index/index'
     }
   }
 })
