@@ -1,5 +1,8 @@
 <!--detail.wxml-->
 <view class="container">
+ <loading hidden="{{hidden}}" bindchange="loadingChange">
+    加载中...
+  </loading>
     <view class="art-header">
         <image src="http://pqpqpq.cn{{banner.url}}" class="art-img"/>
     </view>
@@ -38,4 +41,6 @@
     <view class="art-content">
       {{banner.content}}
     </view> 
+
+<include src="../../templates/footer.wxml"/> 
 </view>

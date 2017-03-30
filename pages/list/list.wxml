@@ -1,15 +1,46 @@
-<!--list.wxml-->
 <view class="container">
-  <view class="news-item-container">
-    <navigator url="../detail/detail?id={{item.id}}" wx:for="{{list}}" wx:for-index="id">
-        <view class="news-item" >
+  <loading hidden="{{hidden}}" bindchange="loadingChange">
+    加载中...
+  </loading>
+  <scroll-view style="height: {{windowHeight}}px; width: {{windowWidth}}px;" scroll-y="true" bindscrolltoupper="pullDownRefresh" bindscrolltolower="pullUpLoad">
+    <view wx:if="{{hasRefesh}}" style="display: flex;flex-direction: row;align-items: center;align-self: center;justify-content: center;">
+      <icon type="waiting" size="45" />
+      <text>刷新中...</text>
+    </view>
+    <view wx:else style="display:none">
+      <text></text>
+    </view>
+    <view class="lll" wx:for="{{list}}" wx:for-item="item" wx:key="bannerlist">
+      <navigator url="../detail/detail?id={{item.bannerID}}">
+        <view class="news-item">
           <view class="news-item-left">
             <text class="news-item-title">{{item.title}}</text>
+            <view class="answer-actions">
+              <view class="like">
+                共 {{item.hot}} 人已浏览
+              </view>
+              <view class="comments">
+                <text class="item-more">{{item.addTime}}</text>
+              </view>
+              <view class="clear-both"></view>
+            </view>
           </view>
           <view class="news-item-right">
-            <image src="{{item.images[0]}}" class="news-image"/>
+            <image src="http://pqpqpq.cn{{item.url}}" class="news-image" />
           </view>
         </view>
-    </navigator>
-  </view>
+      </navigator>
+    </view>
+    <view class="tips1">
+      <view wx:if="{{hasMore}}" style="display: flex;flex-direction: row;align-items: center;align-self: center;justify-content: center;">
+        <icon type="waiting" size="45" />
+        <text>玩命的加载中...</text>
+      </view>
+      <view wx:else style="display: flex;flex-direction: row;align-items: center;align-self: center;justify-content: center;background-color:#ffffff;width:95%;margin:10px auto;height:25px;line-height:25px;color:#a0acac;">
+        <text>没有更多内容了</text>
+      </view>
+    </view>
+  </scroll-view>
+  
+<include src="../../templates/footer.wxml"/> 
 </view>

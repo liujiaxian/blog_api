@@ -4,16 +4,19 @@
     "pages/blog/blog",
     "pages/book/book",
     "pages/plan/plan",
-    "pages/member/member",
+    "pages/memberinfo/memberinfo",
     "pages/detail/detail",
     "pages/blogdetail/blogdetail",
-    "pages/list/list"
+    "pages/list/list",
+    "pages/bloglist/bloglist",
+    "pages/case/case"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#00a2ea",
     "navigationBarTitleText": "诺缘网",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh":"true"
   },
   "tabBar": {
     "color": "#353535",
@@ -41,10 +44,10 @@
       "selectedIconPath": "images/icon_component_HL.png",
       "text": "计划"
     }, {
-      "pagePath": "pages/member/member",
+      "pagePath": "pages/case/case",
       "iconPath": "images/icon_component.png",
       "selectedIconPath": "images/icon_component_HL.png",
-      "text": "个人中心"
+      "text": "项目"
     }]
   },
   "networkTimeout": {

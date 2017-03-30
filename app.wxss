@@ -112,3 +112,18 @@
     margin-bottom: 10px;
     border-bottom:1px solid #F0F4F3;
 }
+
+.member-title{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+
+.clear-both{
+  clear: both;
+}
+
+.footer-banquan{
+  margin: 10px 0px;
+  text-align: center;
+}

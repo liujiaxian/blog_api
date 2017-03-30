@@ -1,7 +1,8 @@
 <!--detail.wxml-->
 <view class="container">
-    
-
+     <loading hidden="{{hidden}}" bindchange="loadingChange">
+    加载中...
+  </loading>
     <scroll-view scroll-y="true" class="container">
     <block>
     <view class="feed-item">
@@ -38,4 +39,5 @@
     <view class="art-content">
       {{blog.content}}
     </view> 
+<include src="../../templates/footer.wxml"/> 
 </view>

@@ -1,4 +1,4 @@
-// pages/member/member.js
+// pages/case/case.js
 Page({
   data:{},
   onLoad:function(options){

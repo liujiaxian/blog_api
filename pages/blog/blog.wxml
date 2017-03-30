@@ -1,2 +1,5 @@
 <!--pages/blog/blog.wxml-->
-<text>pages/blog/blog.wxml</text>
+<text>开发中，敬请期待...</text>
+
+
+<include src="../../templates/footer.wxml"/> 

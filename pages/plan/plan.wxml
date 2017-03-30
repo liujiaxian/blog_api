@@ -1,2 +1,4 @@
-<!--pages/plan/plan.wxml-->
-<text>pages/plan/plan.wxml</text>
+<!--pages/book/book.wxml-->
+<text>开发中，敬请期待...</text>
+
+<include src="../../templates/footer.wxml"/> 

@@ -1,0 +1,44 @@
+<view class="container">
+  <loading hidden="{{hidden}}" bindchange="loadingChange">
+    加载中...
+  </loading>
+  <scroll-view scroll-y="true" class="container">
+    
+
+
+    <block>
+
+      <view class="feed-item">
+ <view class="member-title"><text>{{member.nickName}} - 信息 </text></view>
+        <view class="feed-source">
+          <view class="avatar">
+            <image src="http://pqpqpq.cn{{member.url}}"></image>
+            <text>{{member.nickName}}</text>
+          </view>
+          <text class="item-more">{{member.sex}}</text>
+        </view>
+        <view class="feed-content">
+          <view class="answer-body">
+            <view>
+              <text class="answer-txt">{{member.motto}}</text>
+            </view>
+            <view>
+              <text class="answer-txt">{{member.signature}}</text>
+            </view>
+            <view class="answer-actions" bindtap="bindItemTap">
+              <view class="like">
+              积分：{{member.score}}
+              </view>
+              <view class="comments">
+                <text class="item-more">注册时间：{{member.addTime}}</text>
+              </view>
+              <view class="clear-both"></view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+
+<include src="../../templates/footer.wxml"/> 
+</view>
