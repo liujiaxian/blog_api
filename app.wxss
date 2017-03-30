@@ -127,3 +127,6 @@
   margin: 10px 0px;
   text-align: center;
 }
+.tags{
+  margin-bottom: 10px;
+}

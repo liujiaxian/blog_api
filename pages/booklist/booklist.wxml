@@ -10,11 +10,11 @@
     <view wx:else style="display:none">
       <text></text>
     </view>
-    <view class="lll" wx:for="{{list}}" wx:for-item="item" wx:key="bloglist">
+    <view class="lll" wx:for="{{list}}" wx:for-item="item" wx:key="booklist">
           <view class="feed-item">
             <view class="feed-source">
               <view class="avatar">
-                <image src="http://pqpqpq.cn{{item.userPictureUrl}}" data-id="{{item.userID}}" bindtap="bindMemberInfo"></image>
+                <image src="http://pqpqpq.cn{{item.url}}" data-id="{{item.userID}}" bindtap="bindMemberInfo"></image>
                 <text data-id="{{item.userID}}" bindtap="bindMemberInfo">{{item.nickName}}</text>
               </view>
               <text class="item-more" data-id="{{item.typeID}}" bindtap="bindTypeInfo">{{item.typeName}}</text>
@@ -22,7 +22,7 @@
             <view class="feed-content">
               <view class="answer-body">
                 <view>
-                  <text class="answer-txt" bindtap="bindBlogDetail" data-id="{{item.blogID}}">{{item.title}}</text>
+                  <text class="answer-txt" bindtap="bindBookDetail" data-id="{{item.bookID}}">{{item.title}}</text>
                 </view>
                 <view class="answer-actions">
                   <view class="like">

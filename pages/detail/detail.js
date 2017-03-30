@@ -7,6 +7,12 @@ Page({
     wx.setNavigationBarTitle({
       title: "轮播详情"
     })
+  },
+  //用户中心事件处理函数
+  bindMemberInfo(e) {
+    wx.navigateTo({
+      url: '../memberinfo/memberinfo?id=' + e.target.dataset.id
+    })
   },//类型事件处理函数
   bindTypeInfo(e) {
     wx.navigateTo({

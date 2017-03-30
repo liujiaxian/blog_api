@@ -1,0 +1,46 @@
+
+<!--detail.wxml-->
+<view class="container">
+  <loading hidden="{{hidden}}" bindchange="loadingChange">
+    加载中...
+  </loading>
+  <scroll-view scroll-y="true" class="container">
+    <block>
+      <view class="feed-item">
+        <view class="blog-title">
+          <text>{{cases.title}}</text>
+        </view>
+        <view class="feed-source">
+          <view class="avatar">
+            <image src="http://pqpqpq.cn{{cases.userPictureUrl}}" data-id="{{cases.userID}}" bindtap="bindMemberInfo"></image>
+          </view>
+          <text data-id="{{cases.userID}}" bindtap="bindMemberInfo">{{cases.nickName}}</text>
+          <text class="item-more" bindtap="bindTypeInfo" data-id="{{cases.typeID}}">{{cases.name}}</text>
+        </view>
+        <view class="feed-content">
+          <view class="answer-body">
+           <view class="case-image">
+              <image src="http://pqpqpq.cn{{cases.url}}"/>
+            </view>
+            <view>
+              <text class="answer-txt">{{cases.describe}}</text>
+            </view>
+            <view class="answer-actions">
+              <view class="like">
+                共 {{cases.hot}} 人已浏览
+              </view>
+              <view class="comments">
+                <text class="item-more">{{cases.addTime}}</text>
+              </view>
+              <view class="clear-both"></view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+<view class="art-content">
+    {{cases.content}}
+  </view>
+  <include src="../../templates/footer.wxml" />
+</view>

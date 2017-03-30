@@ -7,8 +7,14 @@
     "pages/memberinfo/memberinfo",
     "pages/detail/detail",
     "pages/blogdetail/blogdetail",
+    "pages/plandetail/plandetail",
+    "pages/bookdetail/bookdetail",
+    "pages/casedetail/casedetail",
     "pages/list/list",
     "pages/bloglist/bloglist",
+    "pages/planlist/planlist",
+    "pages/booklist/booklist",
+    "pages/caselist/caselist",
     "pages/case/case"
   ],
   "window":{

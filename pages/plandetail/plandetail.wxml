@@ -1,0 +1,81 @@
+
+<!--detail.wxml-->
+<view class="container">
+  <loading hidden="{{hidden}}" bindchange="loadingChange">
+    加载中...
+  </loading>
+  <scroll-view scroll-y="true" class="container">
+    <block>
+      <view class="feed-item">
+        <view class="blog-title">
+          <text>{{plan.title}}</text>
+        </view>
+        <view class="feed-source">
+          <view class="avatar">
+            <image src="http://pqpqpq.cn{{plan.url}}" data-id="{{plan.userID}}" bindtap="bindMemberInfo"></image>
+          </view>
+          <text data-id="{{plan.userID}}" bindtap="bindMemberInfo">{{plan.nickName}}</text>
+          <text class="item-more" bindtap="bindTypeInfo">{{plan.isRecommend}}</text>
+        </view>
+        <view class="feed-content">
+          <view class="answer-body">
+          <view>
+              <text class="answer-txt tags">标签：{{plan.tags}}</text>
+            </view>
+            <view>
+              <text class="answer-txt">{{plan.describe}}</text>
+            </view>
+            <view class="answer-actions">
+              <view class="like">
+                共 {{plan.hot}} 人已浏览
+              </view>
+              <view class="comments">
+                <text class="item-more">{{plan.addTime}}</text>
+              </view>
+              <view class="clear-both"></view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+
+    <block wx:for="{{planlist}}" wx:key="planInfoListId"  >
+      <view class="feed-item">
+        <view class="feed-source plan-content">
+          <view style="float:left">
+            <text class="plan-content-title">{{item.title}}</text>
+          </view>
+           <view style="float:right">
+            <text>{{item.status}}</text>
+          </view>
+        </view>
+        <view class="feed-content">
+          <view class="answer-body">
+            <view>
+              <text class="answer-txt">{{item.content}}</text>
+            </view>
+            <view>
+              <text class="answer-txt">开始时间：{{item.startTime}}</text>
+            </view>
+            <view>
+              <text class="answer-txt">结束时间：{{item.endTime}}</text>
+            </view>
+            <view class="answer-actions">
+              <view class="like">
+                步骤 {{index+1}}
+              </view>
+              <view class="comments">
+                <text class="item-more">{{item.addTime}}</text>
+              </view>
+              <view class="clear-both"></view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+
+
+
+  <include src="../../templates/footer.wxml" />
+</view>

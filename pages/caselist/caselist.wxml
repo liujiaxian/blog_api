@@ -10,32 +10,35 @@
     <view wx:else style="display:none">
       <text></text>
     </view>
-    <view class="lll" wx:for="{{list}}" wx:for-item="item" wx:key="bloglist">
-          <view class="feed-item">
-            <view class="feed-source">
-              <view class="avatar">
-                <image src="http://pqpqpq.cn{{item.userPictureUrl}}" data-id="{{item.userID}}" bindtap="bindMemberInfo"></image>
-                <text data-id="{{item.userID}}" bindtap="bindMemberInfo">{{item.nickName}}</text>
-              </view>
-              <text class="item-more" data-id="{{item.typeID}}" bindtap="bindTypeInfo">{{item.typeName}}</text>
+    <view class="lll" wx:for="{{list}}" wx:for-item="item" wx:key="caselist">
+      <view class="feed-item">
+        <view class="feed-source">
+          <view class="avatar">
+            <image src="http://pqpqpq.cn{{item.userPictureUrl}}" data-id="{{item.userID}}" bindtap="bindMemberInfo"></image>
+            <text data-id="{{item.userID}}" bindtap="bindMemberInfo">{{item.nickName}}</text>
+          </view>
+          <text class="item-more" data-id="{{item.typeID}}" bindtap="bindTypeInfo">{{item.typeName}}</text>
+        </view>
+        <view class="feed-content">
+          <view class="answer-body">
+            <view class="case-title">
+              <text class="answer-txt" bindtap="bindCaseDetail" data-id="{{item.caseID}}">{{item.title}}</text>
             </view>
-            <view class="feed-content">
-              <view class="answer-body">
-                <view>
-                  <text class="answer-txt" bindtap="bindBlogDetail" data-id="{{item.blogID}}">{{item.title}}</text>
-                </view>
-                <view class="answer-actions">
-                  <view class="like">
-                    共 {{item.hot}} 人已浏览
-                  </view>
-                  <view class="comments">
-                    <text class="item-more">{{item.addTime}}</text>
-                  </view>
-                  <view class="clear-both"></view>
-                </view>
+            <view class="case-image">
+              <image src="http://pqpqpq.cn{{item.url}}" />
+            </view>
+            <view class="answer-actions">
+              <view class="like">
+                共 {{item.hot}} 人已浏览
               </view>
+              <view class="comments">
+                <text class="item-more">{{item.addTime}}</text>
+              </view>
+              <view class="clear-both"></view>
             </view>
           </view>
+        </view>
+      </view>
     </view>
     <view class="tips1">
       <view wx:if="{{hasMore}}" style="display: flex;flex-direction: row;align-items: center;align-self: center;justify-content: center;">
@@ -47,6 +50,5 @@
       </view>
     </view>
   </scroll-view>
-
-  <include src="../../templates/footer.wxml"/> 
+  <include src="../../templates/footer.wxml" />
 </view>

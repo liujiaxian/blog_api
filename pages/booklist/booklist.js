@@ -1,17 +1,14 @@
+
 Page({
   data: {
     list: {},
     hidden: false,
     hasMore: true,
-    page: 0,
+    page: 1,
     hasRefesh: false,
     windowHeight: 0,
-    windowWidth: 0
-  },
-  onReady: function () {
-    wx.setNavigationBarTitle({
-      title: "轮播列表"
-    })
+    windowWidth: 0,
+    typeid: 0
   },
   //用户中心事件处理函数
   bindMemberInfo(e) {
@@ -21,24 +18,39 @@ Page({
   },
   onLoad: function (options) {
     wx.showNavigationBarLoading() //在标题栏中显示加载
+    if (options != undefined) {
+      this.data.typeid = options.typeid
+    }
     var that = this
     wx.request({
-      url: 'https://api.pqpqpq.cn/api/values/getbanner',
+      url: 'https://api.pqpqpq.cn/api/values/postbooklist?page=1&typeid=' + this.data.typeid,
       headers: {
         'Content-Type': 'application/json'
       },
+      method: 'post',
       success: function (res) {
         that.setData({
           list: res.data,
           hidden: true
         })
-        //console.log(res.data)
+
+        if (res.data.length < 5) {
+          that.setData({
+            hasMore: false,
+          })
+        }
       },
       complete: function (res) {
         //console.log('submit complete'+res);  
         wx.hideNavigationBarLoading() //完成停止加载
 
       }
+    })
+  },
+  onReady: function () {
+    // 页面渲染完成
+    wx.setNavigationBarTitle({
+      title: "图书列表"
     })
   }, onShow: function (e) {
     wx.getSystemInfo({
@@ -50,15 +62,28 @@ Page({
       }
     })
   },
+  //类型事件处理函数
+  bindTypeInfo(e) {
+    wx.navigateTo({
+      url: '../booklist/booklist?typeid=' + e.target.dataset.id
+    })
+  },
+  //博客详细处理函数
+  bindBookDetail(e) {
+    wx.navigateTo({
+      url: '../bookdetail/bookdetail?id=' + e.target.dataset.id
+    })
+  },
   pullDownRefresh: function (e) {
     //console.log("下拉刷新....")
     wx.showNavigationBarLoading() //在标题栏中显示加载
     this.onLoad()
     wx.stopPullDownRefresh() //停止下拉刷新
     var that = this
-    this.setData({
+    that.setData({
       hasMore: true,
-      page: 0
+      page: 1,
+      typeid: that.data.typeid
     })
   },
 
@@ -77,7 +102,7 @@ Page({
     //console.log("上拉拉加载更多...." + this.data.page)
 
     wx.request({
-      url: 'https://api.pqpqpq.cn/api/values/postbannerlist?page=' + this.data.page,
+      url: 'https://api.pqpqpq.cn/api/values/postbooklist?page=' + this.data.page + "&typeid=" + this.data.typeid,
       headers: {
         'Content-Type': 'application/json'
       },
@@ -101,7 +126,13 @@ Page({
         wx.hideNavigationBarLoading() //完成停止加载
       }
     })
-  },onShareAppMessage: function () {
-   
+  },
+  onHide: function () {
+    // 页面隐藏
+  },
+  onUnload: function () {
+    // 页面关闭
+  }, onShareAppMessage: function () {
+
   }
 })

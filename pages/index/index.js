@@ -1,4 +1,3 @@
-//index.js
 //获取应用实例
 var app = getApp()
 var utils = require('../../utils/util.js')
@@ -25,16 +24,46 @@ Page({
       url: '../memberinfo/memberinfo?id=' + e.target.dataset.id
     })
   },
-  //类型事件处理函数
-  bindIndexTypeInfo(e) {
+  //博客类型事件处理函数
+  bindBlogTypeInfo(e) {
     wx.navigateTo({
       url: '../bloglist/bloglist?typeid=' + e.target.dataset.id
+    })
+  },
+  //图书类型事件处理函数
+  bindBookTypeInfo(e) {
+    wx.navigateTo({
+      url: '../booklist/booklist?typeid=' + e.target.dataset.id
+    })
+  },
+  //项目类型事件处理函数
+  bindCaseTypeInfo(e) {
+    wx.navigateTo({
+      url: '../caselist/caselist?typeid=' + e.target.dataset.id
     })
   },
   //博客详细处理函数
   bindBlogDetail(e) {
     wx.navigateTo({
       url: '../blogdetail/blogdetail?id=' + e.target.dataset.id
+    })
+  },
+  //计划详细处理函数
+  bindPlanDetail(e) {
+    wx.navigateTo({
+      url: '../plandetail/plandetail?id=' + e.target.dataset.id
+    })
+  },
+  //图书详细处理函数
+  bindBookDetail(e) {
+    wx.navigateTo({
+      url: '../bookdetail/bookdetail?id=' + e.target.dataset.id
+    })
+  },
+  //项目详细处理函数
+  bindCasesDetail(e) {
+    wx.navigateTo({
+      url: '../casedetail/casedetail?id=' + e.target.dataset.id
     })
   }, onLoad() {
     wx.showNavigationBarLoading() //在标题栏中显示加载

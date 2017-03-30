@@ -10,6 +10,12 @@ Page({
     windowWidth: 0,
     typeid:0
   },
+  //用户中心事件处理函数
+  bindMemberInfo(e) {
+    wx.navigateTo({
+      url: '../memberinfo/memberinfo?id=' + e.target.dataset.id
+    })
+  },
   onLoad: function (options) { 
     wx.showNavigationBarLoading() //在标题栏中显示加载
     if(options!=undefined){
@@ -38,6 +44,9 @@ Page({
   },
   onReady:function(){
     // 页面渲染完成
+    wx.setNavigationBarTitle({
+      title: "博客列表"
+    })
   }, onShow: function (e) {
     wx.getSystemInfo({
       success: (res) => {

@@ -1,0 +1,44 @@
+
+<!--detail.wxml-->
+<view class="container">
+  <loading hidden="{{hidden}}" bindchange="loadingChange">
+    加载中...
+  </loading>
+  <scroll-view scroll-y="true" class="container">
+    <block>
+      <view class="feed-item">
+        <view class="blog-title">
+          <text>{{book.title}}</text>
+        </view>
+        <view class="feed-source">
+          <view class="avatar">
+            <image src="http://pqpqpq.cn{{book.url}}" data-id="{{book.userID}}" bindtap="bindMemberInfo"></image>
+          </view>
+          <text data-id="{{book.userID}}" bindtap="bindMemberInfo">{{book.nickName}}</text>
+          <text class="item-more" bindtap="bindTypeInfo" data-id="{{book.typeID}}">{{book.typeName}}</text>
+        </view>
+        <view class="feed-content">
+          <view class="answer-body">
+          <view>
+              <text class="answer-txt tags">标签：{{book.tags}}</text>
+            </view>
+            <view>
+              <text class="answer-txt">{{book.readerDescribe}}</text>
+            </view>
+            <view class="answer-actions">
+              <view class="like">
+                共 {{book.hot}} 人已浏览
+              </view>
+              <view class="comments">
+                <text class="item-more">{{book.addTime}}</text>
+              </view>
+              <view class="clear-both"></view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+
+  <include src="../../templates/footer.wxml" />
+</view>
