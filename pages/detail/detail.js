@@ -1,7 +1,11 @@
+//在使用的View中引入WxParse模块
+var WxParse = require('../../wxParse/wxParse.js');
+
 Page({
   data: {
     loading: true,
-    hidden:false
+    hidden: false,
+    id: 0
   },
   onReady() {
     wx.setNavigationBarTitle({
@@ -20,28 +24,38 @@ Page({
     })
   },
   onLoad(options) {
-     wx.showNavigationBarLoading() //在标题栏中显示加载
+    wx.showNavigationBarLoading() //在标题栏中显示加载
     var that = this
+    if (options != undefined) {
+      this.data.id = options.id
+    }
     wx.request({
-      url: 'https://api.pqpqpq.cn/api/values/getbannerdetail/' + options.id,
+      url: 'https://api.pqpqpq.cn/api/values/getbannerdetail/' + this.data.id,
       headers: {
         'Content-Type': 'application/json'
       },
       success(res) {
-        if (res.data.content) {
-          var body = decodeURIComponent(res.data.content);
-          res.data.content = body
+        if (res.data.tags) {
+          var body = decodeURIComponent(res.data.tags);
+          res.data.tags = body
         }
+
+        var article = decodeURIComponent(res.data.content);
+        WxParse.wxParse('article', 'md', article, that, 5);
+
         that.setData({
           banner: res.data,
-          hidden:true
+          hidden: true
         })
       },
       complete: function (res) {
         wx.hideNavigationBarLoading() //完成停止加载  
       }
     })
-  },onShareAppMessage: function () {
-   
+  }, onShareAppMessage: function () {
+
+  }, onPullDownRefresh: function () {
+    this.onLoad()
+    wx.stopPullDownRefresh() //停止下拉刷新
   }
 })

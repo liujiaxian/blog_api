@@ -33,12 +33,15 @@ Page({
           list: res.data,
           hidden: true
         })
-        //console.log(res.data)
+
+        if (res.data.length < 5) {
+          that.setData({
+            hasMore: false,
+          })
+        }
       },
       complete: function (res) {
-        //console.log('submit complete'+res);  
         wx.hideNavigationBarLoading() //完成停止加载
-
       }
     })
   },
@@ -71,7 +74,6 @@ Page({
   },
   pullDownRefresh: function (e) {
     //console.log("下拉刷新....")
-    wx.showNavigationBarLoading() //在标题栏中显示加载
     this.onLoad()
     wx.stopPullDownRefresh() //停止下拉刷新
     var that = this

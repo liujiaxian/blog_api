@@ -36,8 +36,8 @@
       "text": "主页"
     }, {
       "pagePath": "pages/blog/blog",
-      "iconPath": "images/icon_component.png",
-      "selectedIconPath": "images/icon_component_HL.png",
+      "iconPath": "images/icon_component_1.png",
+      "selectedIconPath": "images/icon_component_HL_1.png",
       "text": "博客"
     }, {
       "pagePath": "pages/book/book",
@@ -46,13 +46,13 @@
       "text": "图书"
     }, {
       "pagePath": "pages/plan/plan",
-      "iconPath": "images/icon_component.png",
-      "selectedIconPath": "images/icon_component_HL.png",
+      "iconPath": "images/icon_component_3.png",
+      "selectedIconPath": "images/icon_component_HL_3.png",
       "text": "计划"
     }, {
       "pagePath": "pages/case/case",
-      "iconPath": "images/icon_component.png",
-      "selectedIconPath": "images/icon_component_HL.png",
+      "iconPath": "images/icon_component_4.png",
+      "selectedIconPath": "images/icon_component_HL_4.png",
       "text": "项目"
     }]
   },

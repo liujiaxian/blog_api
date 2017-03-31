@@ -50,6 +50,7 @@ Page({
   },
   //计划详细处理函数
   bindPlanDetail(e) {
+    console.log(e);
     wx.navigateTo({
       url: '../plandetail/plandetail?id=' + e.target.dataset.id
     })
@@ -124,17 +125,29 @@ Page({
       }
     })
 
+    //调用应用实例的方法获取全局数据
+    app.getUserInfo(function (userInfo) {
+      //更新数据
+      that.setData({
+        userInfo: userInfo
+      })
+    })
+
     that.setData({
       hidden: true
     })
+
+    wx.hideNavigationBarLoading() //完成停止加载
   },
   onReady: function () {
     // 页面渲染完成
-    wx.hideNavigationBarLoading() //完成停止加载
   }, onShareAppMessage: function () {
     return {
       title: '诺缘网',
       path: '/pages/index/index'
     }
+  }, onPullDownRefresh: function () {
+    this.onLoad()
+    wx.stopPullDownRefresh() //停止下拉刷新
   }
 })

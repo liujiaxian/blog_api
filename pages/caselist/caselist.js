@@ -35,9 +35,7 @@ Page({
         }
       },
       complete: function (res) {
-        //console.log('submit complete'+res);  
         wx.hideNavigationBarLoading() //完成停止加载
-
       }
     })
   },
@@ -122,7 +120,6 @@ Page({
 
       },
       complete: function (res) {
-        //console.log('submit complete'+res); 
         wx.hideNavigationBarLoading() //完成停止加载
       }
     })

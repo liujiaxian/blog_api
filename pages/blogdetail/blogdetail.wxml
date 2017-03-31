@@ -1,23 +1,26 @@
+
 <!--detail.wxml-->
 <view class="container">
-     <loading hidden="{{hidden}}" bindchange="loadingChange">
+  <loading hidden="{{hidden}}" bindchange="loadingChange">
     加载中...
   </loading>
-    <scroll-view scroll-y="true" class="container">
-    <block>
+  <block>
     <view class="feed-item">
-     <view class="blog-title"><text>{{blog.title}}</text></view>
+      <view class="blog-title">
+        <text>{{blog.title}}</text>
+      </view>
       <view class="feed-source">
-     
-
-          <view class="avatar">
-            <image src="http://pqpqpq.cn{{blog.userPictureUrl}}" data-id="{{blog.userID}}" bindtap="bindMemberInfo"></image>
-          </view>
+        <view class="avatar">
+          <image src="http://pqpqpq.cn{{blog.userPictureUrl}}" data-id="{{blog.userID}}" bindtap="bindMemberInfo"></image>
           <text data-id="{{blog.userID}}" bindtap="bindMemberInfo">{{blog.nickName}}</text>
-        <text class="item-more" bindtap="bindTypeInfo">{{blog.typeName}}</text>
+        </view>
+        <text class="item-more" bindtap="bindTypeInfo" data-id="{{blog.typeID}}">{{blog.typeName}}</text>
       </view>
       <view class="feed-content">
         <view class="answer-body">
+          <view>
+            <text class="answer-txt tags">标签：{{blog.tags}}</text>
+          </view>
           <view>
             <text class="answer-txt">{{blog.describe}}</text>
           </view>
@@ -34,10 +37,9 @@
       </view>
     </view>
   </block>
-</scroll-view>
-
-    <view class="art-content">
-      {{blog.content}}
-    </view> 
-<include src="../../templates/footer.wxml"/> 
+  <import src="../../wxParse/wxParse.wxml" />
+  <view class="wxParse">
+    <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+  </view>
+  <include src="../../templates/footer.wxml" />
 </view>

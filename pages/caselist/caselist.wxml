@@ -10,6 +10,7 @@
     <view wx:else style="display:none">
       <text></text>
     </view>
+    
     <view class="lll" wx:for="{{list}}" wx:for-item="item" wx:key="caselist">
       <view class="feed-item">
         <view class="feed-source">
@@ -25,7 +26,7 @@
               <text class="answer-txt" bindtap="bindCaseDetail" data-id="{{item.caseID}}">{{item.title}}</text>
             </view>
             <view class="case-image">
-              <image src="http://pqpqpq.cn{{item.url}}" />
+              <image src="http://pqpqpq.cn{{item.url}}" bindtap="bindCaseDetail" data-id="{{item.caseID}}"/>
             </view>
             <view class="answer-actions">
               <view class="like">

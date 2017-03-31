@@ -1,1 +1,30 @@
-/* pages/plan/plan.wxss */
+/**index.wxss**/
+
+.navtitle{
+  margin: 10px 0px;
+  border-bottom:1px solid #8CCEFD;
+}
+.like{
+  float:left;
+}
+
+.comments{
+  float:right;
+}
+
+.container .feed-item .feed-source .avatar{
+  float:left;
+}
+.index-title{
+  font-size:16px;
+  margin-left:15px;
+}
+
+.case-title{
+  margin-bottom: 5px;
+}
+
+.case-image image{
+  width:100%;
+  height: 100px;
+}

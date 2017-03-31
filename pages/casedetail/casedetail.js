@@ -1,3 +1,5 @@
+//在使用的View中引入WxParse模块
+var WxParse = require('../../wxParse/wxParse.js')
 Page({
   data:{
     hidden:false
@@ -21,21 +23,27 @@ Page({
     })
   },
   onLoad(options) {
+    wx.showNavigationBarLoading() //在标题栏中显示加载
     var that = this
+    if (options != undefined) {
+      this.data.id = options.id
+    }
     wx.request({
-      url: 'https://api.pqpqpq.cn/api/values/getcasedetail/' + options.id,
+      url: 'https://api.pqpqpq.cn/api/values/getcasedetail/' + this.data.id,
       headers: {
         'Content-Type': 'application/json'
       },
       success(res) {
-         if (res.data.content) {
-          var body = decodeURIComponent(res.data.content);
-          res.data.content = body
-        }
+        var article = decodeURIComponent(res.data.content);
+        WxParse.wxParse('article', 'md', article, that, 5);
+        
         that.setData({
           cases: res.data,
           hidden:true
         })
+      },
+      complete: function (res) {
+        wx.hideNavigationBarLoading() //完成停止加载  
       }
     })
   },
@@ -49,5 +57,8 @@ Page({
     // 页面关闭
   },onShareAppMessage: function () {
    
+  }, onPullDownRefresh: function () {
+    this.onLoad()
+    wx.stopPullDownRefresh() //停止下拉刷新
   }
 })

@@ -1,46 +1,48 @@
+
 <!--detail.wxml-->
 <view class="container">
- <loading hidden="{{hidden}}" bindchange="loadingChange">
+  <loading hidden="{{hidden}}" bindchange="loadingChange">
     加载中...
   </loading>
-    <view class="art-header">
-        <image src="http://pqpqpq.cn{{banner.url}}" class="art-img"/>
-    </view>
-
-    <scroll-view scroll-y="true" class="container">
+  <view class="art-header">
+    <image src="http://pqpqpq.cn{{banner.url}}" class="art-img" />
+  </view>
     <block>
-    <view class="feed-item">
-     <view class="blog-title"><text>{{banner.title}}</text></view>
-      <view class="feed-source">
+      <view class="feed-item">
+        <view class="blog-title">
+          <text>{{banner.title}}</text>
+        </view>
+        <view class="feed-source">
           <view class="avatar">
             <image src="http://pqpqpq.cn{{banner.userPictureUrl}}" data-id="{{banner.userID}}" bindtap="bindMemberInfo"></image>
+            <text data-id="{{banner.userID}}" bindtap="bindMemberInfo">{{banner.nickName}}</text>
           </view>
-          <text data-id="{{banner.userID}}" bindtap="bindMemberInfo">{{banner.nickName}}</text>
-        <text class="item-more" bindtap="bindTypeInfo">轮播列表</text>
-      </view>
-      <view class="feed-content">
-        <view class="answer-body">
-          <view>
-            <text class="answer-txt">{{banner.describe}}</text>
+          <text class="item-more" bindtap="bindTypeInfo">轮播列表</text>
+        </view>
+        <view class="feed-content">
+          <view class="answer-body">
+           <view>
+            <text class="answer-txt tags">标签：{{banner.tags}}</text>
           </view>
-          <view class="answer-actions">
-            <view class="like">
-              共 {{banner.hot}} 人已浏览
+            <view>
+              <text class="answer-txt">{{banner.describe}}</text>
             </view>
-            <view class="comments">
-              <text class="item-more">{{banner.addTime}}</text>
+            <view class="answer-actions">
+              <view class="like">
+                共 {{banner.hot}} 人已浏览
+              </view>
+              <view class="comments">
+                <text class="item-more">{{banner.addTime}}</text>
+              </view>
+              <view class="clear-both"></view>
             </view>
-            <view class="clear-both"></view>
           </view>
         </view>
       </view>
-    </view>
-  </block>
-</scroll-view>
-
-    <view class="art-content">
-      {{banner.content}}
-    </view> 
-
-<include src="../../templates/footer.wxml"/> 
+    </block>
+  <import src="../../wxParse/wxParse.wxml" />
+  <view class="wxParse">
+    <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+  </view>
+  <include src="../../templates/footer.wxml" />
 </view>

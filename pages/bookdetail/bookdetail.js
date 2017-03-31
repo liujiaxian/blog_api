@@ -1,6 +1,7 @@
 Page({
   data:{
-    hidden:false
+    hidden:false,
+    id:0
   },
   //用户中心事件处理函数
   bindMemberInfo(e) {
@@ -21,9 +22,13 @@ Page({
     })
   },
   onLoad(options) {
+     wx.showNavigationBarLoading() //在标题栏中显示加载
     var that = this
+    if (options != undefined) {
+      this.data.id = options.id
+    }
     wx.request({
-      url: 'https://api.pqpqpq.cn/api/values/getbookdetail/' + options.id,
+      url: 'https://api.pqpqpq.cn/api/values/getbookdetail/' + this.data.id,
       headers: {
         'Content-Type': 'application/json'
       },
@@ -36,6 +41,9 @@ Page({
           book: res.data,
           hidden:true
         })
+      },
+      complete: function (res) {
+        wx.hideNavigationBarLoading() //完成停止加载  
       }
     })
   },
@@ -49,7 +57,8 @@ Page({
     // 页面关闭
   },onShareAppMessage: function () {
    
-  },onShareAppMessage: function () {
-   
+  }, onPullDownRefresh: function () {
+    this.onLoad()
+    wx.stopPullDownRefresh() //停止下拉刷新
   }
 })

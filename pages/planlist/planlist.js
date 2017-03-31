@@ -34,14 +34,15 @@ Page({
         }
       },
       complete: function (res) {
-        //console.log('submit complete'+res);  
         wx.hideNavigationBarLoading() //完成停止加载
-
       }
     })
   },
   onReady:function(){
     // 页面渲染完成
+    wx.setNavigationBarTitle({
+      title: "计划列表"
+    })
   }, onShow: function (e) {
     wx.getSystemInfo({
       success: (res) => {
@@ -111,8 +112,7 @@ Page({
 
 
       },
-      complete: function (res) {
-        //console.log('submit complete'+res); 
+      complete: function (res) { 
         wx.hideNavigationBarLoading() //完成停止加载
       }
     })
