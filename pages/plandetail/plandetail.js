@@ -24,6 +24,7 @@ Page({
     }
     wx.request({
       url: 'https://api.pqpqpq.cn/api/values/getplandetail/' + this.data.id,
+      method: 'GET',
       headers: {
         'Content-Type': 'application/json'
       },
@@ -43,6 +44,7 @@ Page({
 
     wx.request({
       url: 'https://api.pqpqpq.cn/api/values/getplancontentlist/' + this.data.id,
+      method: 'GET',
       headers: {
         'Content-Type': 'application/json'
       },

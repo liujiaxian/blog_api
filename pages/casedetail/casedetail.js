@@ -30,6 +30,7 @@ Page({
     }
     wx.request({
       url: 'https://api.pqpqpq.cn/api/values/getcasedetail/' + this.data.id,
+      method: 'GET',
       headers: {
         'Content-Type': 'application/json'
       },

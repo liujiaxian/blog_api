@@ -9,6 +9,7 @@ Page({
     var that = this
     wx.request({
       url: 'https://api.pqpqpq.cn/api/values/getmemberinfo/' + options.id,
+      method: 'GET',
       headers: {
         'Content-Type': 'application/json'
       },

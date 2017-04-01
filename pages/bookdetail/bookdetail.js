@@ -29,6 +29,7 @@ Page({
     }
     wx.request({
       url: 'https://api.pqpqpq.cn/api/values/getbookdetail/' + this.data.id,
+      method: 'GET',
       headers: {
         'Content-Type': 'application/json'
       },

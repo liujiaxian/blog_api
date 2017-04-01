@@ -12,7 +12,8 @@
       </swiper-item>
     </block>
   </swiper>
-  <scroll-view scroll-y="true" class="container">
+
+
     <view class="navtitle">
       <navigator url="../bloglist/bloglist">
         <text class="answer-txt index-title">博客列表</text>
@@ -45,9 +46,7 @@
         </view>
       </view>
     </block>
-  </scroll-view>
 
-  <scroll-view scroll-y="true" class="container">
     <view class="navtitle">
       <navigator url="../planlist/planlist">
         <text class="answer-txt index-title">计划列表</text>
@@ -80,9 +79,8 @@
         </view>
       </view>
     </block>
-  </scroll-view>
 
-    <scroll-view scroll-y="true" class="container">
+
     <view class="navtitle">
       <navigator url="../booklist/booklist">
         <text class="answer-txt index-title">图书列表</text>
@@ -115,15 +113,13 @@
         </view>
       </view>
     </block>
-  </scroll-view>
 
-    <scroll-view scroll-y="true" class="container">
     <view class="navtitle">
       <navigator url="../caselist/caselist">
         <text class="answer-txt index-title">项目列表</text>
       </navigator>
     </view>
-    <block wx:for="{{case}}" wx:key="caseInfoListId">
+    <block wx:for="{{cases}}" wx:key="caseInfoListId">
       <view class="feed-item">
         <view class="feed-source">
           <view class="avatar">
@@ -153,7 +149,6 @@
         </view>
       </view>
     </block>
-  </scroll-view>
 
 <view class="userinfo">
     <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>

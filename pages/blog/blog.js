@@ -27,7 +27,7 @@ Page({
       headers: {
         'Content-Type': 'application/json'
       },
-      method: 'post',
+      method: 'POST',
       success: function (res) {
         that.setData({
           list: res.data,
@@ -105,23 +105,19 @@ Page({
       headers: {
         'Content-Type': 'application/json'
       },
-      method: 'post',
+      method: 'POST',
       success: function (res) {
         if (res.data == null) {
           that.setData({
-            hasMore: false,
+            hasMore: false
           })
-
         } else {
           that.setData({
-            list: that.data.list.concat(res.data)
+            list: that.data.list.concat(res.data),           
           })
         }
-
-
       },
       complete: function (res) {
-        //console.log('submit complete'+res); 
         wx.hideNavigationBarLoading() //完成停止加载
       }
     })

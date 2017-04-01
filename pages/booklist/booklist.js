@@ -27,7 +27,7 @@ Page({
       headers: {
         'Content-Type': 'application/json'
       },
-      method: 'post',
+      method: 'POST',
       success: function (res) {
         that.setData({
           list: res.data,
@@ -41,9 +41,7 @@ Page({
         }
       },
       complete: function (res) {
-        //console.log('submit complete'+res);  
         wx.hideNavigationBarLoading() //完成停止加载
-
       }
     })
   },
@@ -106,7 +104,7 @@ Page({
       headers: {
         'Content-Type': 'application/json'
       },
-      method: 'post',
+      method: 'POST',
       success: function (res) {
         if (res.data == null) {
           that.setData({

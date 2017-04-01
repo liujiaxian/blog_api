@@ -1,6 +1,6 @@
 
 Page({
-  data:{
+  data: {
     list: {},
     hidden: false,
     hasMore: true,
@@ -9,7 +9,7 @@ Page({
     windowHeight: 0,
     windowWidth: 0
   },
-  onLoad: function (options) { 
+  onLoad: function (options) {
     wx.showNavigationBarLoading() //在标题栏中显示加载
     var that = this
     wx.request({
@@ -17,7 +17,7 @@ Page({
       headers: {
         'Content-Type': 'application/json'
       },
-      method: 'post',
+      method: 'POST',
       success: function (res) {
         that.setData({
           list: res.data,
@@ -34,7 +34,7 @@ Page({
       }
     })
   },
-  onReady:function(){
+  onReady: function () {
     // 页面渲染完成
     wx.setNavigationBarTitle({
       title: "计划"
@@ -63,13 +63,12 @@ Page({
   },
   pullDownRefresh: function (e) {
     //console.log("下拉刷新....")
-    wx.showNavigationBarLoading() //在标题栏中显示加载
     this.onLoad()
     wx.stopPullDownRefresh() //停止下拉刷新
     var that = this
     that.setData({
       hasMore: true,
-      page: 1   
+      page: 1
     })
   },
 
@@ -92,7 +91,7 @@ Page({
       headers: {
         'Content-Type': 'application/json'
       },
-      method: 'post',
+      method: 'POST',
       success: function (res) {
         if (res.data == null) {
           that.setData({
@@ -107,17 +106,17 @@ Page({
 
 
       },
-      complete: function (res) { 
+      complete: function (res) {
         wx.hideNavigationBarLoading() //完成停止加载
       }
     })
   },
-  onHide:function(){
+  onHide: function () {
     // 页面隐藏
   },
-  onUnload:function(){
+  onUnload: function () {
     // 页面关闭
-  },onShareAppMessage: function () {
-   
+  }, onShareAppMessage: function () {
+
   }
-  })
+})

@@ -21,7 +21,7 @@ Page({
       headers: {
         'Content-Type': 'application/json'
       },
-      method: 'post',
+      method: 'POST',
       success: function (res) {
         that.setData({
           list: res.data,
@@ -97,7 +97,7 @@ Page({
       headers: {
         'Content-Type': 'application/json'
       },
-      method: 'post',
+      method: 'POST',
       success: function (res) {
         if (res.data == null) {
           that.setData({

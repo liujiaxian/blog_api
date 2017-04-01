@@ -8,7 +8,7 @@ Page({
     indicatorDots: true,
     autoplay: true,
     interval: 3000,
-    loading: false,
+    loading: true,
     plain: false,
     hidden: false,
   },
@@ -69,59 +69,77 @@ Page({
   }, onLoad() {
     wx.showNavigationBarLoading() //在标题栏中显示加载
     let that = this
+
     wx.request({
       url: 'https://api.pqpqpq.cn/api/values/getbanner',
+      method: 'GET',
       headers: {
         'Content-Type': 'application/json'
       }, success: function (res) {
         //console.log(res.data.length);  
         that.setData({
           banner: res.data,
+           hidden: true 
         })
+      }, complete: function (res) {       
+        wx.hideNavigationBarLoading() //完成停止加载
+
       }
     })
 
     wx.request({
       url: 'https://api.pqpqpq.cn/api/values/getblog',
+      method: 'GET',
       headers: {
         'Content-Type': 'application/json'
       }, success: function (res) {
         that.setData({
           blog: res.data
         })
+      }, complete: function (res) {       
+        wx.hideNavigationBarLoading() //完成停止加载
       }
     })
 
     wx.request({
       url: 'https://api.pqpqpq.cn/api/values/getplan',
+      method: 'GET',
       headers: {
         'Content-Type': 'application/json'
       }, success: function (res) {
         that.setData({
           plan: res.data
         })
+      }, complete: function (res) {       
+        wx.hideNavigationBarLoading() //完成停止加载
       }
     })
 
     wx.request({
       url: 'https://api.pqpqpq.cn/api/values/getbook',
+      method: 'GET',
       headers: {
         'Content-Type': 'application/json'
       }, success: function (res) {
         that.setData({
           book: res.data
         })
+      }, complete: function (res) {       
+        wx.hideNavigationBarLoading() //完成停止加载
       }
     })
 
     wx.request({
       url: 'https://api.pqpqpq.cn/api/values/getcase',
+      method: 'GET',
       headers: {
         'Content-Type': 'application/json'
       }, success: function (res) {
         that.setData({
-          case: res.data
+          cases: res.data,
         })
+      }, complete: function (res) {       
+        wx.hideNavigationBarLoading() //完成停止加载
       }
     })
 
@@ -133,11 +151,7 @@ Page({
       })
     })
 
-    that.setData({
-      hidden: true
-    })
 
-    wx.hideNavigationBarLoading() //完成停止加载
   },
   onReady: function () {
     // 页面渲染完成
@@ -147,6 +161,7 @@ Page({
       path: '/pages/index/index'
     }
   }, onPullDownRefresh: function () {
+    console.log("dd")
     this.onLoad()
     wx.stopPullDownRefresh() //停止下拉刷新
   }

@@ -26,6 +26,7 @@ Page({
     }
     wx.request({
       url: 'https://api.pqpqpq.cn/api/values/getblogdetail/' + this.data.id,
+      method: 'GET',
       headers: {
         'Content-Type': 'application/json'
       },

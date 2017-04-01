@@ -24,6 +24,7 @@ Page({
     var that = this
     wx.request({
       url: 'https://api.pqpqpq.cn/api/values/getbanner',
+      method: 'GET',
       headers: {
         'Content-Type': 'application/json'
       },
@@ -37,7 +38,6 @@ Page({
       complete: function (res) {
         //console.log('submit complete'+res);  
         wx.hideNavigationBarLoading() //完成停止加载
-
       }
     })
   }, onShow: function (e) {
@@ -81,7 +81,7 @@ Page({
       headers: {
         'Content-Type': 'application/json'
       },
-      method: 'post',
+      method: 'POST',
       success: function (res) {
         if (res.data == null) {
           that.setData({
